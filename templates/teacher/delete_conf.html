@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+ <div class="col-md-4 offset-4">
+                        <div class="card">
+                            <div class="card-header"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  DELETE CONFIRMATION </div>
+                            <div class="card-body">
+                                <form action="" method="post">{% csrf_token %}
+                                       do you want to delete  <mark> <strong>{{t_obj.name}}</strong></mark> ?
+                                         <p class="mb-0">
+                                             <button class=" fa fa-trash-o btn btn-danger btn-sm mt-4 " type="submit" value="Yes"></button>
+                                             <a href="{% url 't_list'%}" class="btn btn-warning mt-4 btn-sm"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</a>
+                                         </p>
+                                 </form>
+                            </div>
+                        </div>
+                     </div>
+
+{% endblock %}

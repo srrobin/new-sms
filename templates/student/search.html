@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+
+                     <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header"><mark><strong>CREATE STUDENT </strong></mark></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                     {% include 'student/search-input.html' %}
+                                    </div>
+
+
+                                      <div class="col-md-9">
+                                       {% include 'student/search-result.html' %}
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+
+{% endblock %}
+

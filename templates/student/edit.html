@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+
+                     <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header"><mark><strong>EDIT STUDENT </strong></mark></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8 offset-2">
+                                         <div class="card">
+                                            <div class="card-header"> <i class="fa fa-file-text" aria-hidden="true"></i></div>
+                                            <div class="card-body">
+                                                <form method="post"  > {% csrf_token %}
+                                                  {{ form1}}
+                                                  {{ form2}}
+
+                                                    <button class="btn btn-primary btn-sm btn-block mt-2" type="submit">
+                                                    <i class="fa fa-dot-circle-o"></i> Submit</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+
+{% endblock %}

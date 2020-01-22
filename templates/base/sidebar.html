@@ -1,0 +1,73 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+		
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+				<a class="nav-link nav-dropdown-toggle" href="#">
+				<i class="nav-icon icon-note"></i>Administration</a>
+				
+				<ul class="nav-dropdown-items">
+
+					<li class="nav-item nav-dropdown">
+						<a class="nav-link nav-dropdown-toggle" href="#">
+						<i class="nav-icon fa fa-code"></i>TEACHER</a>
+
+						<ul class="nav-dropdown-items">
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 't_list'%}">
+								<i class="nav-icon "></i> Teacher List</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 't_create'%}">
+								<i class="nav-icon "></i> Create Teacher</a>
+							 </li>
+						</ul>
+					</li>
+
+					 <li class="nav-item nav-dropdown">
+						<a class="nav-link nav-dropdown-toggle" href="#">
+						<i class="nav-icon fa fa-code"></i>STUDENT</a>
+
+						<ul class="nav-dropdown-items">
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 's_search'%}">
+								<i class="nav-icon "></i> Search Student </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 's_create' %}">
+								<i class="nav-icon "></i> Create Student</a>
+							 </li>
+						</ul>
+					 </li>
+				</ul>
+			</li> 
+
+            <li class="nav-item nav-dropdown">
+				<a class="nav-link nav-dropdown-toggle" href="#">
+				<i class="nav-icon icon-note"></i>  new entry</a>
+				
+				<ul class="nav-dropdown-items">
+					<li class="nav-item">
+						<a class="nav-link" href="base/breadcrumb.html">
+						<i class="nav-icon fa fa-code"></i> Breadcrumb new</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="base/cards.html">
+						<i class="nav-icon fa fa-code"></i> Cards new</a>
+					 </li>
+				</ul>
+			</li>     
+
+			
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

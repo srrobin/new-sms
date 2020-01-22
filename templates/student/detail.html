@@ -1,0 +1,83 @@
+ {% extends 'base/base.html' %} {% block content %}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <mark><strong>DETAILS <i>of</i> STUDENTS </strong></mark>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+
+                <div class="col-md-9">
+                    <div class="card">
+                        <h5 class="card-header">{{student.student.name}}'s details</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="text-center mb-3">
+                                        <img src="https://lh5.googleusercontent.com/proxy/EkYugv9KzLUfAIpv-P4g6b0_mKxhcsfTvNmVueDn6XDHQp_SA0_hG2YFVAwB0Lbj_S-LrT-OtYsvxXMCrkZZMCmBfwelTQaAZW6GZwMQ8bRLwEvZonc0k0NxUpkhLBDuApx25K735rZfyHCIqA1RVpSdU84HF7U-j3xAwt3XLevAJtr5pwaVnRUC=w120-h120" class="rounded" alt="...">
+                                    </div>
+                                    <a href="{% url 's_edit' student.id %}" type="button" class="btn btn-info btn-sm btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                                    <a href="{% url 's_delete' student.id %}" type="button" class="btn  btn-warning btn-sm btn-block"><i class="fa fa-trash-o" aria-hidden="true"></i>  Delete</a>
+       <!---////problem here////---><a href="{% url 's_search'   %}" type="button" class="btn  btn-warning btn-sm btn-block"><i class="fa fa-trash-o" aria-hidden="true"></i>  back search</a>
+                                    <a type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+
+                                </div>
+                                <div class="col-md-9">
+                                    <h3>SONAR BANGLA HIGH SCHOOL</h3>
+                                    Sidstore bazar , Bhaluka , Mymenshingh
+                                    <hr style="width: 100%; color: black; height: 1px;" />
+
+
+                                    <div class="bd-example mt-5">
+                                        <dl class="row">
+                                            <dt class="col-sm-3">Student Name</dt>
+                                            <dd class="col-sm-9">{{student.student.name}}</dd>
+
+                                            <dt class="col-sm-3">Father Name</dt>
+                                            <dd class="col-sm-9">{{student.student.father_name}}</dd>
+
+                                            <dt class="col-sm-3">Mother Name</dt>
+                                            <dd class="col-sm-9">{{student.student.mother_name}}</dd>
+
+                                            <dt class="col-sm-3">Age</dt>
+                                            <dd class="col-sm-9">{{student.student.age}}</dd>
+
+                                            <dt class="col-sm-3">Mobile</dt>
+                                            <dd class="col-sm-9">{{student.student.mobile}}</dd>
+
+                                            <dt class="col-sm-3">Gender</dt>
+                                            <dd class="col-sm-9">{{student.student.gender.gender_name}}</dd>
+
+                                            <dt class="col-sm-3">Address</dt>
+                                            <dd class="col-sm-9">{{student.student.address}}</dd>
+
+                                            <dt class="col-sm-3">Roll No</dt>
+                                            <dd class="col-sm-9">{{student.roll_no}}</dd>
+
+                                            <dt class="col-sm-3">Class Name</dt>
+                                            <dd class="col-sm-9">{{student.std_class}}</dd>
+
+                                            <dt class="col-sm-3">Class Shift</dt>
+                                            <dd class="col-sm-9">{{student.std_shift}}</dd>
+
+                                            <dt class="col-sm-3">Class Section</dt>
+                                            <dd class="col-sm-9">{{student.std_section}}</dd>
+
+                                            <dt class="col-sm-3">Session</dt>
+                                            <dd class="col-sm-9">{{student.std_session}}</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
