@@ -56,6 +56,7 @@ class StudentDetailsInfo(models.Model):
     std_shift = models.ForeignKey(StudentShiftInfo, on_delete=models.CASCADE)
     std_section = models.ForeignKey(Section, on_delete=models.CASCADE)
     std_session = models.ForeignKey(Session, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return self.student.name

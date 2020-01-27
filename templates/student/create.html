@@ -12,7 +12,7 @@
                                          <div class="card">
                                             <div class="card-header"> <i class="fa fa-file-text" aria-hidden="true"></i></div>
                                             <div class="card-body">
-                                                <form method="post" > {% csrf_token %}
+                                                <form method="post" enctype="multipart/form-data"> {% csrf_token %}
                                                   {{ form1}}
                                                   {{ form2}}
 

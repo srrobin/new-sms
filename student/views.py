@@ -1,7 +1,33 @@
 from django.shortcuts import render,redirect
 from .models import StudentDetailsInfo
 from .forms import StudentInfoForm,StudentDetailForm,StudentSearchForm
-from django.http import HttpResponseRedirect
+
+
+
+
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.template import Context
+from django.template.loader import get_template
+from django.utils.html import escape
+from xhtml2pdf import pisa
+from io import StringIO, BytesIO
+
+
+
+def getPdfPage(request,roll_no):
+    lists = StudentDetailsInfo.objects.get(id=roll_no)
+    data={'lists':lists}
+    template=get_template("pdf.html")
+    data_p=template.render(data)
+    response=BytesIO()
+
+    pdfPage=pisa.pisaDocument(BytesIO(data_p.encode("UTF-8")),response)
+    if not pdfPage.err:
+        return HttpResponse(response.getvalue(),content_type="application/pdf")
+    else:
+        return HttpResponse("Error Generating PDF")
+
+
 
 
 
@@ -41,8 +67,8 @@ def s_create(request):
     form1 = StudentInfoForm()
     form2 = StudentDetailForm()
     if request.method == 'POST':
-        form1 = StudentInfoForm(request.POST or None)
-        form2 = StudentDetailForm(request.POST or None)
+        form1 = StudentInfoForm(request.POST or None,request.FILES)
+        form2 = StudentDetailForm(request.POST or None,request.FILES)
         if form1.is_valid() & form2.is_valid():
             std_obj = form1.save()
             std_detail = form2.save(commit=False)

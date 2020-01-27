@@ -7,4 +7,5 @@ urlpatterns = [
     path('detail/<int:roll_no>/', views.s_detail, name='s_detail'),
     path('edit/<int:roll_no>/', views.s_edit, name='s_edit'),
     path('delete/<int:s_id>', views.s_delete, name='s_delete'),
+    path('stdPdfPage/<int:roll_no>/', views.getPdfPage, name='get_pdf_std'),
 ]

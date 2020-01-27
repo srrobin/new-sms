@@ -2,6 +2,30 @@ from django.shortcuts import render,redirect
 from .models import TeacherInfo
 from .forms import TeacherForm
 
+
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.template import Context
+from django.template.loader import get_template
+from django.utils.html import escape
+from xhtml2pdf import pisa
+from io import StringIO, BytesIO
+
+
+
+def getPdfPage(request):
+    lists=TeacherInfo.objects.all()
+    data={'lists':lists}
+    template=get_template("newpdf.html")
+    data_p=template.render(data)
+    response=BytesIO()
+
+    pdfPage=pisa.pisaDocument(BytesIO(data_p.encode("UTF-8")),response)
+    if not pdfPage.err:
+        return HttpResponse(response.getvalue(),content_type="application/pdf")
+    else:
+        return HttpResponse("Error Generating PDF")
+
+
 def t_list(request):
     lists = TeacherInfo.objects.all()
     context = {'lists':lists}
@@ -16,7 +40,7 @@ def t_create(request):
             forms.save()
             return redirect('t_list')
     context = {'forms':forms}
-    return render(request,'teacher/create.html',context)
+    return render(request,'teacher/pdf.html',context)
 
 
 def t_edit(request,t_id):

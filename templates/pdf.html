@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+
+
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding:0px 3px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td {
+  padding: 6px 3px;
+  font-size:12px;
+}
+
+th {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #f2f2f2;
+  color: #000;
+  font-size:14px;
+}
+
+.bg td{
+   padding-top: 2px;
+   padding-bottom: 2px;
+   margin-bottom:10px;
+   font-size:25px;
+}
+
+.top-section h1, p {
+    margin: 0;
+}
+.top-section p{
+font-size:16px;
+}
+        </style>
+    </head>
+    <body>
+      <table class="bg">
+        <tr>
+            <td class="top-section">
+                <h1>Sonar Bangla High School</h1>
+                <p>{{lists.student.address}}</p>
+            </td>
+        </tr>
+     </table>
+
+        <table class="table" >
+                <tr>
+					<th>Student Name</th>
+					<td>{{lists.student.name}}</td>
+				  </tr>
+				  <tr>
+					<th>Father Name</th>
+					<td>{{lists.student.father_name}}</td>
+				  </tr>
+				  <tr>
+					<th>Mother Name</th>
+					<td>{{lists.student.mother_name}}</td>
+				  </tr>
+				  <tr>
+					<th>Age</th>
+					<td>{{lists.student.age}}</td>
+				  </tr>
+				  <tr>
+					<th>Gender</th>
+					<td>{{lists.student.gender.gender_name}}</td>
+				  </tr>
+				  <tr>
+					<th>Roll No</th>
+					<td>{{lists.roll_no}}</td>
+				  </tr>
+				  <tr>
+					<th>Class Name</th>
+					<td>{{lists.std_class}}</td>
+				  </tr>
+				  <tr>
+					<th>Class Shift</th>
+					<td>{{lists.std_shift}}</td>
+				  </tr>
+				  <tr>
+					<th>Class Section</th>
+					<td>{{lists.std_shift}}</td>
+				  </tr>
+				  <tr>
+					<th>Session</th>
+					<td>{{lists.std_session}}</td>
+				  </tr>
+				  <tr>
+					<th>Session</th>
+					<td>{{lists.std_session}}</td>
+				  </tr>
+				  <tr>
+					<th>Mobile</th>
+					<td>{{lists.student.mobile}}</td>
+				  </tr>
+            </table>
+           <table class="footer">
+               <tr>
+                 <td><strong>@ Light Foundation it</strong></td>
+                 </tr>
+           </table>
+    </body>
+</html>

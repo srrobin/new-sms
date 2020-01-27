@@ -5,4 +5,6 @@ urlpatterns = [
     path('create/', views.t_create, name='t_create'),
     path('edit/<int:t_id>', views.t_edit, name='t_edit'),
     path('delete/<int:t_id>', views.t_delete, name='t_delete'),
+    path('getPdfPage/', views.getPdfPage, name='get_pdf_page'),
+
 ]

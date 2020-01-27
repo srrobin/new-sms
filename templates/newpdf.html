@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+
+
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td {
+  padding: 6px 3px;
+  text-align:left;
+  font-size:12px;
+
+}
+
+th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+  font-size:14px;
+}
+.caption{
+  font-size:16px;
+  font-weight:bold;
+}
+.bg td{
+   padding-top: 15px;
+   padding-bottom: 10px;
+   text-align:center;
+   margin-bottom:10px;
+   font-size:25px;
+}
+
+        </style>
+    </head>
+    <body>
+      <table class="bg">
+        <tr>
+            <td class="righthead">
+                <h1>Sonar Bangla High School</h1>
+            </td>
+        </tr>
+     </table>
+
+        <table class="table" >
+                <tr>
+                    <th>SL NO.</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Phone Number</th>
+                 </tr>
+                {% for list in lists %}
+                  <tr>
+                     <td class="text-center"><strong>{{forloop.counter}}</strong></td>
+                     <td><strong>{{list.name}}</strong></td>
+                     <td><strong>{{list.designation}}</strong></td>
+                     <td><strong>{{list.gender}}</strong></td>
+                     <td><strong>{{list.age}}</strong></td>
+                     <td><strong>{{list.phone_number}}</strong></td>
+                  </tr>
+              {% endfor %}
+            </table>
+           <table class="footer">
+               <tr>
+                 <td><strong>@ Light Foundation it</strong></td>
+                 </tr>
+           </table>
+    </body>
+</html>

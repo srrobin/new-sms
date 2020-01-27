@@ -16,12 +16,16 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="text-center mb-3">
-                                        <img src="https://lh5.googleusercontent.com/proxy/EkYugv9KzLUfAIpv-P4g6b0_mKxhcsfTvNmVueDn6XDHQp_SA0_hG2YFVAwB0Lbj_S-LrT-OtYsvxXMCrkZZMCmBfwelTQaAZW6GZwMQ8bRLwEvZonc0k0NxUpkhLBDuApx25K735rZfyHCIqA1RVpSdU84HF7U-j3xAwt3XLevAJtr5pwaVnRUC=w120-h120" class="rounded" alt="...">
+                                        {% if student.image %}
+                                          <img src="{{student.image.url}}" height=150 width= 150 class="rounded" alt="{}">
+                                        {% else %}
+                                           <span class="text-muted">No Image</span>
+                                        {% endif %}
                                     </div>
                                     <a href="{% url 's_edit' student.id %}" type="button" class="btn btn-info btn-sm btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                                     <a href="{% url 's_delete' student.id %}" type="button" class="btn  btn-warning btn-sm btn-block"><i class="fa fa-trash-o" aria-hidden="true"></i>  Delete</a>
-       <!---////problem here////---><a href="{% url 's_search'   %}" type="button" class="btn  btn-warning btn-sm btn-block"><i class="fa fa-trash-o" aria-hidden="true"></i>  back search</a>
-                                    <a type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+       <!---////problem here////---><a href="{% url 's_search' %}?student_class={{std_class}}&roll={{std_roll}}&session={{session}}" type="button" class="btn  btn-warning btn-sm btn-block"><i class="fa fa-trash-o" aria-hidden="true"></i>  back search</a>
+                                    <a href="{% url 'get_pdf_std' student.id %}" target="_blank" type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
 
                                 </div>
                                 <div class="col-md-9">
