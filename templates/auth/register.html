@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+  {% block title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 offset-4 mt-4">
+       <h3 style="text-align:center;color:#007BFF;">Register an account</h3>
+        <hr style="margin-bottom:30px; border: 0;height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0,123,255), rgba(0, 0, 0, 0));">
+          <form method="post" action="{% url 'register' %}">{% csrf_token %}
+
+              {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    <button type = "button" class="close" data-dismiss = "alert">x</button>
+                    <p>Problem ! try again  </p>
+                </div>
+            {% endif %}
+
+            {{ form.as_p }}
+              <input type="submit" value="Sign Up" class="btn  btn-block btn-primary">
+          </form>
+        </div>
+    </div>
+{% endblock %}

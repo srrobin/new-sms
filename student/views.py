@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import StudentDetailsInfo
 from .forms import StudentInfoForm,StudentDetailForm,StudentSearchForm
-
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -30,7 +30,7 @@ def getPdfPage(request,roll_no):
 
 
 
-
+@login_required
 def s_search(request):
     forms = StudentSearchForm()
     std_class = request.GET.get('student_class',None)
@@ -50,7 +50,7 @@ def s_search(request):
     context = {'forms': forms}
     return render(request,'student/search.html',context)
 
-
+@login_required
 def s_list(request):
     lists = StudentDetailsInfo.objects.all()
     context = {'lists':lists}
@@ -62,7 +62,7 @@ def s_detail(request,roll_no):
     context = {'student': student_obj}
     return render(request,'student/detail.html',context)
 
-
+@login_required
 def s_create(request):
     form1 = StudentInfoForm()
     form2 = StudentDetailForm()
@@ -99,6 +99,7 @@ def s_edit(request,roll_no):
 
     context = { 'form1':form1,'form2':form2 }
     return render(request,'student/edit.html',context)
+
 
 def s_delete(request,s_id):
     s_obj = StudentDetailsInfo.objects.get(id=s_id)

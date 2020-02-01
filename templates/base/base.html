@@ -49,7 +49,15 @@
         <!-- Page contents -->
         <div class="container-fluid">
             <div class="animated fadeIn">
+
+                 <div class="row">
+                     <div class="col-md-4 offset-4">
+                        {% include 'auth/message.html' %}
+                     </div>
+                 </div>
+
                 {% block content %}
+
                 {% endblock %}
             </div>
 

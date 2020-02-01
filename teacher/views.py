@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import TeacherInfo
 from .forms import TeacherForm
+from django.contrib.auth.decorators import login_required
 
 
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -25,7 +26,7 @@ def getPdfPage(request):
     else:
         return HttpResponse("Error Generating PDF")
 
-
+@login_required
 def t_list(request):
     lists = TeacherInfo.objects.all()
     context = {'lists':lists}
@@ -40,7 +41,7 @@ def t_create(request):
             forms.save()
             return redirect('t_list')
     context = {'forms':forms}
-    return render(request,'teacher/pdf.html',context)
+    return render(request,'teacher/create.html',context)
 
 
 def t_edit(request,t_id):

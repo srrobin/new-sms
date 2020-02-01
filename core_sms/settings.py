@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'student',
     'teacher',
 
+    'crispy_forms',
+
      'api',
      'rest_framework',
      'rest_framework.authtoken',
@@ -152,3 +154,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"),)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+#uses crispy form with bootstrap
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

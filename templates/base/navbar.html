@@ -23,15 +23,19 @@
                 <div class="dropdown-header text-center">
                     <strong>Account</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span
-                        class="badge badge-info">42</span></a>
-                <div class="dropdown-header text-center">
-                    <strong>Settings</strong>
-                </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-secondary">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+                {% if user.is_authenticated %}
+                <a class="dropdown-item" href="{% url 'logout' %}" ><i class="fa fa-bell-o"></i> Logout</a>
+                <a class="dropdown-item" href="{% url 'register_update' %}" ><i class="fa fa-bell-o"></i>Update</a>
+                <a class="dropdown-item" href="{% url 'change_password' %}" ><i class="fa fa-bell-o"></i>Change Password</a>
+
+
+                {% else %}
+
+
+
+                <a class="dropdown-item" href="{% url 'login' %}" ><i class="fa fa-bell-o"></i> Login</a>
+                <a class="dropdown-item" href="{% url 'register' %}" ><i class="fa fa-bell-o"></i> Register</a>
+                {% endif %}
             </div>
         </li>
     </ul>
