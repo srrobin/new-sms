@@ -6,9 +6,18 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .forms import RegisterForm,EditRegisterForms
 #from django.contrib.auth.views import PasswordResetView,PasswordResetDoneView,PasswordResetConfirmView,PasswordResetCompleteView
 from django.contrib.auth.decorators import login_required
+from teacher.models import TeacherInfo
+from student.models import StudentDetailsInfo,StudentClassInfo,StudentInfo
+from django.db.models import Count
+
 @login_required
 def home(request):
-    return render(request,'home.html')
+    count = TeacherInfo.objects.all().count()
+    std = StudentInfo.objects.all().count()
+    cls = StudentClassInfo.objects.all()
+
+    context = { 'count': count,'std':std,'cls':cls}
+    return render(request,'home.html',context)
 
 def login_user(request):
     if request.method == 'POST':

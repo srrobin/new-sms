@@ -1,7 +1,83 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block title %} SMS {% endblock %}
-
 {% block content %}
+<div class="row">
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body pb-0">
+                <div class="text-value"><strong>TOTAL TEACHER : </strong>{{count}}</div>
+                <div class="text-value"><strong>PRESENT TEACHER : </strong>---</div>
+                <div class="text-value"><strong>ABSENT TEACHER : </strong>---</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;"></div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-secondary">
+            <div class="card-body pb-0">
+                <div class="text-value"><strong>TOTAL STUDENT : </strong>{{std}}</div>
+                <div class="text-value"><strong>PRESENT STUDENT : </strong>---</div>
+                <div class="text-value"><strong>ABSENT STUDENT : </strong>---</div>
+                <div> </div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;"></div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-success">
+            <div class="card-body pb-0">
+                <div class="text-value">student per class</div>
+                {% for class in cls%}
+                    <div class="text-value"> class  {{class.class_name}} : --        absent : --</div>
+                {% endfor %}
+            </div>
+            <div class="chart-wrapper" style="height:10px;"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-danger">
+            <div class="card-body pb-0">
+                <div class="text-value">CHART 1</div>
+                <div> calculation</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;"></div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body pb-0">
+                <div class="text-value">CHART 2</div>
+                <div>calculation</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;"></div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-info">
+            <div class="card-body pb-0">
+                <div class="text-value">CHART 3</div>
+                <div>calculation</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;"></div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-primary">
+  <strong>Website is in progress ... ...</strong>
+</div>
+
+
 
 {% endblock %}

@@ -12,7 +12,7 @@ from django.utils.html import escape
 from xhtml2pdf import pisa
 from io import StringIO, BytesIO
 
-
+from django.contrib.auth.decorators import login_required
 
 def getPdfPage(request,roll_no):
     lists = StudentDetailsInfo.objects.get(id=roll_no)

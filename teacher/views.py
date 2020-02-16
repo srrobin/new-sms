@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import TeacherInfo
 from .forms import TeacherForm
-from django.contrib.auth.decorators import login_required
+
 
 
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -10,29 +10,17 @@ from django.template.loader import get_template
 from django.utils.html import escape
 from xhtml2pdf import pisa
 from io import StringIO, BytesIO
+from django.contrib.auth.decorators import login_required
 
-
-
-def getPdfPage(request):
-    lists=TeacherInfo.objects.all()
-    data={'lists':lists}
-    template=get_template("newpdf.html")
-    data_p=template.render(data)
-    response=BytesIO()
-
-    pdfPage=pisa.pisaDocument(BytesIO(data_p.encode("UTF-8")),response)
-    if not pdfPage.err:
-        return HttpResponse(response.getvalue(),content_type="application/pdf")
-    else:
-        return HttpResponse("Error Generating PDF")
 
 @login_required
 def t_list(request):
+    count =TeacherInfo.objects.all().count()
     lists = TeacherInfo.objects.all()
-    context = {'lists':lists}
+    context = {'lists':lists,'count':count}
     return render(request,'teacher/list.html',context)
 
-
+@login_required
 def t_create(request):
     forms = TeacherForm()
     if request.method == 'POST':
@@ -65,3 +53,15 @@ def t_delete(request,t_id):
     return render(request, 'teacher/delete_conf.html', context)
 
 
+def getPdfPage(request):
+    lists=TeacherInfo.objects.all()
+    data={'lists':lists}
+    template=get_template("newpdf.html")
+    data_p=template.render(data)
+    response=BytesIO()
+
+    pdfPage=pisa.pisaDocument(BytesIO(data_p.encode("UTF-8")),response)
+    if not pdfPage.err:
+        return HttpResponse(response.getvalue(),content_type="application/pdf")
+    else:
+        return HttpResponse("Error Generating PDF")
